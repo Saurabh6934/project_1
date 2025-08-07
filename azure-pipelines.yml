@@ -18,3 +18,14 @@ steps:
     backendAzureRmStorageAccountName: 'stggaurav777'
     backendAzureRmContainerName: 'gauravcontainer'
     backendAzureRmKey: 'skp.tfstate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'first_connection'
