@@ -5,6 +5,13 @@ terraform {
       version = "4.37.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "gauravrg"
+    storage_account_name = "stggaurav777"
+    container_name       = "gauravcontainer"
+    key                  = "myskp.tfstate"
+  }
+
 }
 
 provider "azurerm" {
