@@ -33,6 +33,12 @@ jobs:
         command: 'validate'
 
     - task: TerraformTask@5
+      displayName: Terraform Formatting
+      inputs:
+        provider: 'azurerm'
+        command: 'fmt'
+
+    - task: TerraformTask@5
       displayName: Terraform Plan
       inputs:
         provider: 'azurerm'
