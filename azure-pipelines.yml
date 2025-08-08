@@ -1,31 +1,30 @@
-
 trigger:
-- main
+  branches:
+    include:
+      - main
 
-pool: 
- name: skp-agent
+pool:
+  name: skp-agent
 
-steps:
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: 'latest'
+jobs:
+- job: terraform_job
+  displayName: 'Terraform Init Job'
+  steps:
+  - task: TerraformInstaller@1
+    inputs:
+      terraformVersion: 'latest'
 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    backendServiceArm: 'first_connection'
-    backendAzureRmStorageAccountName: 'stggaurav777'
-    backendAzureRmContainerName: 'gauravcontainer'
-    backendAzureRmKey: 'skp.tfstate'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      backendServiceArm: 'first_connection'
+      backendAzureRmStorageAccountName: 'stggaurav777'
+      backendAzureRmContainerName: 'gauravcontainer'
+      backendAzureRmKey: 'skp.tfstate'
 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
-
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'first_connection'
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      environmentServiceNameAzureRM: 'first_connection'
