@@ -26,26 +26,26 @@ jobs:
         backendAzureRmContainerName: 'gauravcontainer'
         backendAzureRmKey: 'skp.tfstate'
 
-    # - task: TerraformTask@5
-    #   displayName: Terraform Validate
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'validate'
+    - task: TerraformTask@5
+      displayName: Terraform Validate
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
 
-    # - task: TerraformTask@5
-    #   displayName: Terraform Plan
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'plan'
-    #     environmentServiceNameAzureRM: 'first_connection'
+    - task: TerraformTask@5
+      displayName: Terraform Plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        environmentServiceNameAzureRM: 'first_connection'
 
-    # - task: TerraformTask@5
-    #   displayName: Terraform Apply
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'apply'
-    #     commandOptions: '-auto-approve'
-    #     environmentServiceNameAzureRM: 'first_connection'
+    - task: TerraformTask@5
+      displayName: Terraform Apply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        commandOptions: '-auto-approve'
+        environmentServiceNameAzureRM: 'first_connection'
 
     - task: TerraformTask@5
       displayName: Terraform Destroy
