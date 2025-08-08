@@ -16,15 +16,15 @@ jobs:
       inputs:
         terraformVersion: 'latest'
     
-    # - task: TerraformTask@5
-    #   displayName: Terraform Init
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'init'
-    #     backendServiceArm: 'first_connection'
-    #     backendAzureRmStorageAccountName: 'stggaurav777'
-    #     backendAzureRmContainerName: 'gauravcontainer'
-    #     backendAzureRmKey: 'skp.tfstate'
+    - task: TerraformTask@5
+      displayName: Terraform Init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'first_connection'
+        backendAzureRmStorageAccountName: 'stggaurav777'
+        backendAzureRmContainerName: 'gauravcontainer'
+        backendAzureRmKey: 'skp.tfstate'
 
     # - task: TerraformTask@5
     #   displayName: Terraform Validate
