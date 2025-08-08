@@ -46,10 +46,3 @@ jobs:
         command: 'apply'
         commandOptions: '-auto-approve'
         environmentServiceNameAzureRM: 'first_connection'
-
-    - task: TerraformTask@5
-      displayName: Terraform Destroy
-      inputs:
-        provider: 'azurerm'
-        command: 'destroy'
-        environmentServiceNameAzureRM: 'first_connection'
